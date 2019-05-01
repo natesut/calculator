@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Calculator Mayhem!</title>
+    <style>
+      h1{
+        color: cornflowerblue;
+        text-shadow: 1px 1px black;
+        text-decoration: underline dotted blue;
+      }
+      input{
+        width:60px;
+        height:45px;
+        font-size:110%;
+        padding:2px;
+        border: 3px solid magenta;
+      }
+      select{
+        margin:7px;
+        font-size:110%;
+        }
+        body{
+          
+          background: #fcecfc; /* Old browsers */
+          background: -webkit-linear-gradient(left, #fcecfc 0%,#26e0d3 23%,#fd89d7 67%,#ff7cd8 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to right, #fcecfc 0%,#26e0d3 23%,#fd89d7 67%,#ff7cd8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    
+
+          /*background-image: repeating-radial-gradient(red, yellow 10%, green 15%);*/
+        }
+        .wrapper{
+          padding:10px;
+          background-color: rgba(255,255,255, .7);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+    <h1>Calculator Mayhem!</h1>
+    <p>
+      <input type="number" id="num1">
+      <select id="operator">
+        <option value="plus">+</option>
+        <option value="minus">-</option>
+        <option value="divide">/</option>
+        <option value="multiply">*</option>
+        <input type="number" id="num2">
+        <button id="button">Calculate NOW!</button>
+      </select>
+    </p>
+    <p><strong>Answer</strong>: <span id="answer">answer goes here</span></p>
+  </div>
+  </body>
+  <script>
+    document.getElementById("button")
+    .addEventListener("click", function(){
+      let num1 = document.getElementById("num1").value;
+      let num2 = document.getElementById("num2").value;
+      let answer = (+num1) + (+num2);
+
+      document.getElementById("answer").innerHTML= answer;
+    })
+    
+  </script>
+</html>
