@@ -36,28 +36,47 @@
   <body>
     <div class="wrapper">
     <h1>Calculator Mayhem!</h1>
-    <p>
-      <input type="number" id="num1">
-      <select id="operator">
-        <option value="plus">+</option>
-        <option value="minus">-</option>
-        <option value="divide">/</option>
-        <option value="multiply">*</option>
-        <input type="number" id="num2">
-        <button id="button">Calculate NOW!</button>
-      </select>
-    </p>
-    <p><strong>Answer</strong>: <span id="answer">answer goes here</span></p>
+    <form>
+      <p>
+        <input type="number" id="num1">
+        <select id="operator">
+          <option value="plus">+</option>
+          <option value="minus">-</option>
+          <option value="divide">/</option>
+          <option value="multiply">*</option>
+          <input type="number" id="num2">
+          <button type="submit" id="button">Calculate NOW!</button>
+        </select>
+      </p>
+      <p><strong>Answer</strong>: <span id="answer">answer goes here</span></p>
+  </form>
   </div>
   </body>
   <script>
     document.getElementById("button")
-    .addEventListener("click", function(){
+    .addEventListener("click", ()=>{
+      e.preventDefault();
       let num1 = document.getElementById("num1").value;
       let num2 = document.getElementById("num2").value;
-      let answer = (+num1) + (+num2);
+      let op = document.getElementById("operator").value;
+      let answer;
 
-      document.getElementById("answer").innerHTML= answer;
+      switch(op){
+        case "plus":
+          answer = (+num1) + (+num2);
+          break;
+        case "minus":
+          answer = (+num1) - (+num2);
+          break;
+        case "divide":
+          answer = (+num1) / (+num2);
+          break;
+        case "multiply":
+          answer = (+num1) * (+num2);
+          break;
+      }      
+
+      document.getElementById("answer").innerHTML = answer;
     })
     
   </script>
